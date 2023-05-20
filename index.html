@@ -38,7 +38,42 @@
       width: 100%;
       height: auto;
     }
-
+    
+    .gallery a {
+      display: block;
+      text-align: center;
+    }
+    
+    .gallery a:hover img {
+      opacity: 0.7;
+    }
+    
+    .modal {
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.3s;
+    }
+    
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+    
+    .modal.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    
     footer {
       background-color: #333;
       color: #fff;
@@ -46,6 +81,19 @@
       text-align: center;
     }
   </style>
+  <script>
+    function openModal(imageSrc) {
+      const modal = document.getElementById('modal');
+      const modalImage = document.getElementById('modal-image');
+      modalImage.src = imageSrc;
+      modal.classList.add('show');
+    }
+    
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.classList.remove('show');
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -54,15 +102,25 @@
 
   <main>
     <div class="gallery">
-      <img src="path/to/image1.jpg" alt="Image 1">
-      <img src="path/to/image2.jpg" alt="Image 2">
-      <img src="path/to/image3.jpg" alt="Image 3">
-      <!-- Add more images here -->
+      <a href="./images/image1.png" target="_blank" onclick="openModal('./images/image1.png'); return false;">
+        <img src="./images/image1-thumbnail.png" alt="Image 1">
+      </a>
+      <a href="./images/image2.png" target="_blank" onclick="openModal('./images/image2.png'); return false;">
+        <img src="./images/image2-thumbnail.png" alt="Image 2">
+      </a>
+      <a href="./images/image3.png" target="_blank" onclick="openModal('./images/image3.png'); return false;">
+        <img src="./images/image3-thumbnail.png" alt="Image 3">
+      </a>
+      <!-- Add more thumbnail images and corresponding large images here -->
     </div>
-  </main>
-
-  <footer>
-    &copy; 2023 Your Name | Astrophotography Portfolio
-  </footer>
-</body>
-</html>
+    
+    <div id="modal" class="modal" onclick="closeModal();">
+      <img id="modal-image" src="" alt ="Modal Image">
+    </div>
+    
+      </main>
+      <footer>
+        &copy; 2023 Your Name | Astrophotography Portfolio
+      </footer>
+    </body>
+    </html>
