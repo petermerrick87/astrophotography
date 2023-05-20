@@ -82,13 +82,15 @@
     }
   </style>
   <script>
-    function openModal(imageSrc) {
+     function openModal(imageSrc, imageText) {
       const modal = document.getElementById('modal');
       const modalImage = document.getElementById('modal-image');
+      const modalText = document.getElementById('modal-text');
       modalImage.src = imageSrc;
+      modalText.textContent = imageText;
       modal.classList.add('show');
     }
-    
+
     function closeModal() {
       const modal = document.getElementById('modal');
       modal.classList.remove('show');
@@ -102,15 +104,15 @@
 
   <main>
     <div class="gallery">
-      <a href="./images/image1.png" target="_blank" onclick="openModal('./images/image1.png'); return false;">
-        <img src="./images/image1-thumbnail.png" alt="Image 1">
-      </a>
-      <a href="./images/image2.png" target="_blank" onclick="openModal('./images/image2.png'); return false;">
-        <img src="./images/image2-thumbnail.png" alt="Image 2">
-      </a>
-      <a href="./images/image3.png" target="_blank" onclick="openModal('./images/image3.png'); return false;">
-        <img src="./images/image3-thumbnail.png" alt="Image 3">
-      </a>
+        <a href="./images/image1.png" target="_blank" onclick="openModal('./images/image1.png', 'M42'); return false;">
+            <img src="./images/image1-thumbnail.png" alt="Image 1">
+        </a>
+        <a href="./images/image2.png" target="_blank" onclick="openModal('./images/image2.png', 'M83'); return false;">
+            <img src="./images/image2-thumbnail.png" alt="Image 1">
+        </a>
+        <a href="./images/image3.png" target="_blank" onclick="openModal('./images/image3.png', 'Running Chicken'); return false;">
+            <img src="./images/image3-thumbnail.png" alt="Image 3">
+        </a>
       <!-- Add more thumbnail images and corresponding large images here -->
     </div>
     
@@ -120,7 +122,7 @@
     
       </main>
       <footer>
-        &copy; 2023 Your Name | Astrophotography Portfolio
+        &copy; 2023 Peter Merrick | Astrophotography Portfolio
       </footer>
     </body>
     </html>
